@@ -16,10 +16,10 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/ReactiveX/RxSwift.git", from: "6.8.0"),
-        .package(path: "../AppModels"),
-        .package(path: "../CoreModule"),
-        .package(path: "../AppDI"),
-        .package(path: "../Extensions")
+        .package(url: "https://github.com/gaidasalwa/AppModels.git", from: "1.0.0"),
+        .package(url: "https://github.com/gaidasalwa/CoreModule.git", from: "1.0.0"),
+        .package(url: "https://github.com/gaidasalwa/AppDI.git", from: "1.0.0"),
+        .package(url: "https://github.com/gaidasalwa/Extensions.git", from: "1.0.0")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
