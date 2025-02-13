@@ -7,18 +7,22 @@
 
 
 import Foundation
-import SharedModels
-import HTTPClient
+import AppModels
+import CoreModule
 import Extensions
+import Factory
+import AppDI
 
-protocol AdDetailUseCaseProtocol {
+public protocol AdDetailUseCaseProtocol {
     func fetchAdDetail(identifier: String) async throws -> Ad
 }
 
-class AdDetailUseCase: AdDetailUseCaseProtocol {
-    @Injected private var httpClient: HTTPClientProtocol
+public class AdDetailUseCase: AdDetailUseCaseProtocol {
+    @Injected(\.httpClient) private var httpClient: HTTPClientProtocol
     
-    func fetchAdDetail(identifier: String) async throws -> Ad {
+    public init() {}
+    
+    public func fetchAdDetail(identifier: String) async throws -> Ad {
         let urlRequest = Endpoint.fetchAdDetail(identifier: identifier).urlRequest
         do {
             let adResponse: AdDetailResponse = try await httpClient.sendRequest(to: urlRequest)

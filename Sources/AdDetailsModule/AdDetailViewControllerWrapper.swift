@@ -8,17 +8,21 @@
 
 import SwiftUI
 import UIKit
-import SharedModels
+import AppModels
 
-struct AdDetailViewControllerWrapper: UIViewControllerRepresentable {
+public struct AdDetailViewControllerWrapper: UIViewControllerRepresentable {
     let ad: Ad
+    
+    public init(ad: Ad) {
+        self.ad = ad
+    }
 
-    func makeUIViewController(context: Context) -> AdDetailViewController {
+    public func makeUIViewController(context: Context) -> AdDetailViewController {
         let viewController = AdDetailViewController(viewModel: AdDetailViewModel(useCase: AdDetailUseCase()))
         return viewController
     }
 
-    func updateUIViewController(_ uiViewController: AdDetailViewController, context: Context) {
+    public func updateUIViewController(_ uiViewController: AdDetailViewController, context: Context) {
         // Mise à jour si besoin
     }
 }
